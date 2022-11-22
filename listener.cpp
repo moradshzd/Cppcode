@@ -1,7 +1,7 @@
 #include "std_msgs/String.h"
 #include "ros/ros.h"
 
-void callback (const std_msg::String &msg){
+void callback (const std_msgs::String &msg){
     ROS_INFO("i recived [%s]", msg.data.c_str());
 }
 
