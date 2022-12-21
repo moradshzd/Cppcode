@@ -96,11 +96,10 @@ bool handle_service (biginner_tutorials::AddTwoInts::Request &req,biginner_tutor
 
 
 int main (int argc,char **argv){
-    ros::init(argc , argv, "cpp_server");   
+    ros::init(argc , argv, "server");   
     ros::NodeHandle nh;                     
 
-    ros::ServerService server=nh.advertiseService("/add_two_ints",handle_service);
-
+    ros::ServiceServer server=nh.advertiseService("/add_two_ints",handle_service);
     ros::spin();
 
 
@@ -118,9 +117,9 @@ Our goal is to create a client that sends a request to the server and receives a
 
 
 int main (int argc,char **argv){ 
-    ros::init(argc , argv, "cpp_client");
+    ros::init(argc , argv, "client");
     ros::NodeHandle nh;
-    ros::ServiceClient client=nh.ServiceClient<beginner_tutorials::AddTwoInts>("/add_two_ints");
+    ros::ServiceClient client=nh.serviceClient<beginner_tutorials::AddTwoInts>("/add_two_ints");
     beginner_tutorials::AddTwoInts srv;
     srv.request.a=3;
     srv.request.b=5;
