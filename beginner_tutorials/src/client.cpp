@@ -2,7 +2,8 @@
 #include "beginner_tutorials/AddTwoInts.h"
 
 
-int main (int argc,char **argv){
+int main (int argc,char **argv)
+{
     ros::init(argc , argv, "client");// initialize the input arguments and specify the node name 
     ros::NodeHandle nh;// We use the NodeHandle as a reference for the node 
     ros::ServiceClient client=nh.serviceClient<beginner_tutorials::AddTwoInts>("/add_two_ints");
@@ -13,11 +14,13 @@ int main (int argc,char **argv){
     srv.request.a=3;
     srv.request.b=5;
 
-    if (client.call(srv))  {
+    if (client.call(srv))  
+    {
         ROS_INFO("server answered : %d",(int) srv.response.sum) ;
-        }
-            else {
-            ROS_WARN("failed");
+    }
+    else 
+    {
+        ROS_WARN("failed");
+    }
 }
-           }
 
