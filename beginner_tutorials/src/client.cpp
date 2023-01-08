@@ -4,8 +4,8 @@
 
 int main (int argc,char **argv)
 {
-    ros::init(argc , argv, "client");// initialize the input arguments and specify the node name 
-    ros::NodeHandle nh;// We use the NodeHandle as a reference for the node 
+    ros::init(argc , argv, "client");           // initialize the input arguments and specify the node name 
+    ros::NodeHandle nh;                         // We use the NodeHandle as a reference for the node 
     ros::ServiceClient client=nh.serviceClient<beginner_tutorials::AddTwoInts>("/add_two_ints");
     /*  Our goal is to create a client through the ServiceClient command, whose task is to send a request
      *  to the /add_two_ints server and receive the response.*/
